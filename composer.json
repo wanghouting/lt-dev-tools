@@ -1,0 +1,36 @@
+{
+    "name": "wanghouting/lt-travel-update",
+    "description": "a dev update  extension for lt travel  ",
+    "type": "tools",
+    "minimum-stability": "dev",
+    "require": {
+        "encore/laravel-admin": "^1.6",
+        "php": "^7.0.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wanghouting",
+            "email": "wanghouting@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LTBackup\\Extension\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LTUpdate\\Extension\\LaravelServiceProvider"
+            ],
+            "aliases": {
+                "LTUpdate": "LTUpdate\\Extension\\Facades\\LTUpdate"
+            }
+        }
+    }
+}
+
