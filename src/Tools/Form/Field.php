@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LTUpdate\Extension\Tools\Form;
+namespace LTTools\Extension\Tools\Form;
 
 
 class Field extends \Encore\Admin\Form\Field

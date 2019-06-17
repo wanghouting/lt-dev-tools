@@ -1,15 +1,15 @@
 <?php
-namespace LTUpdate\Extension\Support;
+namespace LTTools\Extension\Support;
 use Illuminate\Support\Facades\DB;
-use LTUpdate\Extension\Entities\Rule;
-use LTUpdate\Extension\Entities\RunLog;
-use LTUpdate\Extension\Facades\SettingFacade;
+use LTTools\Extension\Entities\Rule;
+use LTTools\Extension\Entities\RunLog;
+use LTTools\Extension\Facades\SettingFacade;
 
 /**
  * @author wanghouting
- * Class LTUpdate
+ * Class LTTools
  */
-class LTUpdate{
+class LTTools{
 
 
 

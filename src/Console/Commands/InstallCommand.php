@@ -1,9 +1,9 @@
 <?php
 
-namespace LTUpdate\Extension\Console\Commands;
+namespace LTTools\Extension\Console\Commands;
 
 use Illuminate\Console\Command;
-use LTUpdate\Extension\Database\Seeders\LTUpdateDatabaseSeeder;
+use LTTools\Extension\Database\Seeders\LTToolsDatabaseSeeder;
 
 class InstallCommand extends Command
 {
@@ -12,14 +12,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ltupdate:install';
+    protected $signature = 'lttools:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the lt travel update package';
+    protected $description = 'Install the lt travel dev tools package';
 
     /**
      * Install directory.
@@ -46,10 +46,10 @@ class InstallCommand extends Command
      */
     public function initDatabase()
     {
-        !is_dir(storage_path('logs/update')) && mkdir(storage_path('logs/update'),0777,true);
+        !is_dir(storage_path('logs/lttools')) && mkdir(storage_path('logs/lttools'),0777,true);
         $this->call('migrate');
-        $this->call('vendor:publish', ['--provider'=> "LTUpdate\Extension\LaravelServiceProvider"]);
-        $this->call('db:seed', ['--class' => LTUpdateDatabaseSeeder::class]);
+        $this->call('vendor:publish', ['--provider'=> "LTTools\Extension\LaravelServiceProvider"]);
+        $this->call('db:seed', ['--class' => LTToolsDatabaseSeeder::class]);
     }
 
 

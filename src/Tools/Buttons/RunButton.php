@@ -1,10 +1,10 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Buttons;
+namespace LTTools\Extension\Tools\Buttons;
 
 
 use Encore\Admin\Grid\Tools\AbstractTool;
-use LTUpdate\Extension\Facades\Admin;
+use LTTools\Extension\Facades\Admin;
 
 class RunButton extends AbstractTool
 {

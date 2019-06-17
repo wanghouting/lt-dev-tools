@@ -1,12 +1,12 @@
 <?php
 
-namespace LTUpdate\Extension\Controllers;
+namespace LTTools\Extension\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use LTUpdate\Extension\Entities\Rule;
-use LTUpdate\Extension\Entities\RunLog;
-use LTUpdate\Extension\Facades\SettingFacade;
+use LTTools\Extension\Entities\Rule;
+use LTTools\Extension\Entities\RunLog;
+use LTTools\Extension\Facades\SettingFacade;
 
 
 /**

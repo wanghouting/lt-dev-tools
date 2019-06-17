@@ -1,15 +1,15 @@
 <?php
 
-namespace LTUpdate\Extension\Support;
+namespace LTTools\Extension\Support;
 
-use LTUpdate\Extension\Facades\Admin;
-use LTUpdate\Extension\Tools\Grid\Grid;
+use LTTools\Extension\Facades\Admin;
+use LTTools\Extension\Tools\Grid\Grid;
 
 use Closure;
 /**
  * Class GridViewBuilder
  * @author wanghouting
- * @package LTUpdate\Extension\Support
+ * @package LTTools\Extension\Support
  */
 class GridViewBuilder {
     /**
@@ -22,7 +22,7 @@ class GridViewBuilder {
      * @param $model
      * @param Closure $callback
      * @return $this
-     * @deprecated please use LTUpdate\Extension\Facades\GridBuilder::buildGrid
+     * @deprecated please use LTTools\Extension\Facades\GridBuilder::buildGrid
      */
     public function buildGrid($model,Closure $callback ) {
 

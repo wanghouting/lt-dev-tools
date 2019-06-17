@@ -1,17 +1,17 @@
 <?php
 
 
-namespace LTUpdate\Extension\Tools\Grid;
+namespace LTTools\Extension\Tools\Grid;
 
 use Closure;
 use Encore\Admin\Grid\Column;
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use LTUpdate\Extension\Tools\Grid\Displayers\SwitchDisplay;
+use LTTools\Extension\Tools\Grid\Displayers\SwitchDisplay;
 
 /**
  * Class Grid
  * @author wanghouting
- * @package LTUpdate\Extension\Tools\Grid
+ * @package LTTools\Extension\Tools\Grid
  */
 class Grid extends \Encore\Admin\Grid {
 

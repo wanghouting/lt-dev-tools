@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension\Facades;
+namespace LTTools\Extension\Facades;
 
 
 use Closure;
 use Illuminate\Support\Facades\Facade;
-use LTUpdate\Extension\Support\GridViewBuilder;
+use LTTools\Extension\Support\GridViewBuilder;
 
 /**
  * Class GridBuilder

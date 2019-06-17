@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension\Facades;
+namespace LTTools\Extension\Facades;
 
 
 use Illuminate\Support\Facades\Facade;
-use LTUpdate\Extension\Tools\Grid\Grid;
-use LTUpdate\Extension\Tools\Layout\Form;
+use LTTools\Extension\Tools\Grid\Grid;
+use LTTools\Extension\Tools\Layout\Form;
 
 /**
  * Class Admin.
@@ -18,6 +18,6 @@ use LTUpdate\Extension\Tools\Layout\Form;
 class Admin extends Facade {
 
     protected static function getFacadeAccessor() {
-        return \LTUpdate\Extension\Tools\Admin::class;
+        return \LTTools\Extension\Tools\Admin::class;
     }
 }

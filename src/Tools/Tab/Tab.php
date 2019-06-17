@@ -1,6 +1,6 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Tab;
+namespace LTTools\Extension\Tools\Tab;
 
 
 class Tab extends \Encore\Admin\Widgets\Tab {

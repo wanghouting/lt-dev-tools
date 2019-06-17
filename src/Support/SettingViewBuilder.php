@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension\Support;
+namespace LTTools\Extension\Support;
 
-use LTUpdate\Extension\Facades\FormBuilder;
-use LTUpdate\Extension\Facades\SettingFacade;
-use LTUpdate\Extension\Tools\Form\Form;
-use LTUpdate\Extension\Tools\Tab\Tab;
+use LTTools\Extension\Facades\FormBuilder;
+use LTTools\Extension\Facades\SettingFacade;
+use LTTools\Extension\Tools\Form\Form;
+use LTTools\Extension\Tools\Tab\Tab;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -13,7 +13,7 @@ use Illuminate\Support\Collection;
 /**
  * 后台设置页面构造器
  * @author  wanghouting
- * @package LTUpdate\Extension\Support\SettingViewBuilder
+ * @package LTTools\Extension\Support\SettingViewBuilder
  */
 class SettingViewBuilder {
 

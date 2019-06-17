@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension;
+namespace LTTools\Extension;
 
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application as LaravelApplication;
-use LTUpdate\Extension\Console\Commands\InstallCommand;
+use LTTools\Extension\Console\Commands\InstallCommand;
 
 //use Laravel\Lumen\Application as LumenApplication;
 
@@ -20,10 +20,10 @@ class LaravelServiceProvider extends  ServiceProvider
     public function boot()
     {
         $this->setupConfig();
-        $this->loadViewsFrom(__DIR__.'/Resources/views', 'ltupdate');
+        $this->loadViewsFrom(__DIR__.'/Resources/views', 'lttools');
         $this->loadMigrationsFrom(__DIR__.'/Databases/migrations');
-        $this->publishes([__DIR__.'/Resources/assets' => public_path('vendor/lt-dev-update')], 'ltupdate-assets');
-
+        $this->publishes([__DIR__.'/Resources/assets' => public_path('vendor/lt-dev-tools')], 'lttools-assets');
+        $this->loadRoutesFrom(__DIR__.'/Route/routes.php');
     }
 
 
@@ -43,13 +43,13 @@ class LaravelServiceProvider extends  ServiceProvider
         $configSource = realpath(__DIR__ . '/config.php');
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([
-                $configSource => config_path('ltupdate.php')
+                $configSource => config_path('lttools.php')
             ]);
         }
 //        elseif ($this->app instanceof LumenApplication) {
 //            $this->app->configure('ltbackup');
 //        }
-        $this->mergeConfigFrom($configSource, 'ltupdate');
+        $this->mergeConfigFrom($configSource, 'lttools');
 
     }
 

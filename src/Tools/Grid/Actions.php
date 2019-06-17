@@ -1,6 +1,6 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Grid;
+namespace LTTools\Extension\Tools\Grid;
 
 
 use Encore\Admin\Facades\Admin;

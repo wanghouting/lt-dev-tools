@@ -1,14 +1,14 @@
 <?php
 
-namespace LTUpdate\Extension\Facades;
+namespace LTTools\Extension\Facades;
 
-use LTUpdate\Extension\Support\SettingSupport;
+use LTTools\Extension\Support\SettingSupport;
 use Modules\Base\Facades\DbFacades;
 
 /**
  * Class SettingFacade
  * @method  static mixed get($name, $default = null);
- * @package LTUpdate\Extension\Facades
+ * @package LTTools\Extension\Facades
  */
 class SettingFacade extends DbFacades
 {

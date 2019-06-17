@@ -1,14 +1,14 @@
 <?php
 
-namespace LTUpdate\Extension\Controllers;
+namespace LTTools\Extension\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
-use LTUpdate\Extension\Entities\Setting;
-use LTUpdate\Extension\Entities\SettingTypes;
-use LTUpdate\Extension\Tools\Layout\Content;
-use LTUpdate\Extension\Facades\SettingBuilder;
+use LTTools\Extension\Entities\Setting;
+use LTTools\Extension\Entities\SettingTypes;
+use LTTools\Extension\Tools\Layout\Content;
+use LTTools\Extension\Facades\SettingBuilder;
 
 
 

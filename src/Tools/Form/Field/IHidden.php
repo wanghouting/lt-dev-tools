@@ -1,11 +1,11 @@
 <?php
 
 
-namespace LTUpdate\Extension\Tools\Form\Field;
+namespace LTTools\Extension\Tools\Form\Field;
 
 
 
-use LTUpdate\Extension\Tools\Form\Field;
+use LTTools\Extension\Tools\Form\Field;
 
 class IHidden extends Field
 {

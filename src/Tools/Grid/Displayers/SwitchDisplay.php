@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LTUpdate\Extension\Tools\Grid\Displayers;
+namespace LTTools\Extension\Tools\Grid\Displayers;
 
 
 use Encore\Admin\Admin;

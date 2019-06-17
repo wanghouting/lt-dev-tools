@@ -1,25 +1,23 @@
 <?php
 
-namespace LTUpdate\Extension\Controllers\Base;
+namespace LTTools\Extension\Controllers\Base;
 
 
 use Encore\Admin\Controllers\HasResourceActions;
 use Illuminate\Routing\Controller;
-use LTUpdate\Extension\Facades\SettingFacade;
-use Modules\Admin\Tools\Form\Form;
-use Modules\Admin\Tools\Grid\Grid;
-use Modules\Admin\Tools\Layout\Content;
-use Modules\Admin\Tools\Show\Show;
 
+
+use LTTools\Extension\Tools\Form\Form;
+use LTTools\Extension\Tools\Grid\Grid;
+use LTTools\Extension\Tools\Layout\Content;
 use RuntimeException;
-
 
 
 
 /**
  * Class AdminBaseController
  * @author wanghouting
- * @package LTUpdate\Extension\Controllers\Base;
+ * @package LTTools\Extension\Controllers\Base;
  */
 class AdminBaseController extends Controller
 {
@@ -69,7 +67,7 @@ class AdminBaseController extends Controller
 
     /**
      * @param $id
-     * @return Show
+     * @return
      */
     protected function detail($id) {
         $this->id = $id;

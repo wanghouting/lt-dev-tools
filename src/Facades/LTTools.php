@@ -1,16 +1,16 @@
 <?php
-namespace LTUpdate\Extension\Facades;
+namespace LTTools\Extension\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class LTUpdate
+ * Class LTTools
  * @method  static  string getRunStateLabel($state);
  * @method static void run(bool $all);
  * @method  static string getNextRunTime($time_at);
- * @package LTUpdate\Extension\Facades
+ * @package LTTools\Extension\Facades
  */
-class LTUpdate extends  Facade
+class LTTools extends  Facade
 {
     /**
      * Get the registered name of the component.
@@ -19,6 +19,6 @@ class LTUpdate extends  Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \LTUpdate\Extension\Support\LTUpdate::class;
+        return \LTTools\Extension\Support\LTTools::class;
     }
 }

@@ -1,16 +1,16 @@
 <?php
 
-namespace LTUpdate\Extension\Support;
+namespace LTTools\Extension\Support;
 
 use Closure;
 use Encore\Admin\Form\Tools;
-use LTUpdate\Extension\Facades\Admin;
-use LTUpdate\Extension\Tools\Form\Form;
+use LTTools\Extension\Facades\Admin;
+use LTTools\Extension\Tools\Form\Form;
 
 /**
  * Class FormViewBuilder
  * @author wanghouting
- * @package LTUpdate\Extension\Support
+ * @package LTTools\Extension\Support
  */
 class FormViewBuilder {
     /**

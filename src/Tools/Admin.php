@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension\Tools;
+namespace LTTools\Extension\Tools;
 
 
 use Closure;
-use LTUpdate\Extension\Tools\Form\Form;
-use LTUpdate\Extension\Tools\Grid\Grid;
+use LTTools\Extension\Tools\Form\Form;
+use LTTools\Extension\Tools\Grid\Grid;
 
 /**
  * Class Admin
@@ -16,10 +16,10 @@ class Admin extends  \Encore\Admin\Admin {
     public function __construct()
     {
        self::$baseCss = array_merge(self::$baseCss,[
-           'vendor/lt-dev-update/layer/theme/default/layer.css',
+           'vendor/lt-dev-tools/layer/theme/default/layer.css',
        ]);
        self::$baseJs = array_merge(self::$baseJs,[
-           'vendor/lt-dev-update/layer/layer.js',
+           'vendor/lt-dev-tools/layer/layer.js',
        ]);
     }
 
@@ -33,9 +33,6 @@ class Admin extends  \Encore\Admin\Admin {
     {
         return new Grid($this->getModel($model), $callable);
     }
-
-
-
 
 
     /**

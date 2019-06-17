@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LTUpdate\Extension\Tools\Form\Field;
+namespace LTTools\Extension\Tools\Form\Field;
 
 
 use Encore\Admin\Form\Field\Html;

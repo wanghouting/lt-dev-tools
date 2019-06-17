@@ -1,13 +1,13 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Layout;
+namespace LTTools\Extension\Tools\Layout;
 
 use Encore\Admin\Layout\Content as BaseContent;
 
 /**
  * Class Content
  * @author  wanghouting
- * @package LTUpdate\Extension\Tools\Layout
+ * @package LTTools\Extension\Tools\Layout
  */
 class Content extends BaseContent
 {

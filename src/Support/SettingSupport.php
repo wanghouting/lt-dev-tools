@@ -1,16 +1,16 @@
 <?php
 
 
-namespace  LTUpdate\Extension\Support;
+namespace  LTTools\Extension\Support;
 
 
 
-use LTUpdate\Extension\Entities\Setting;
+use LTTools\Extension\Entities\Setting;
 
 /**
  * Class SettingSupport
  * @author wanghouting
- * @package LTUpdate\Extension\Support;
+ * @package LTTools\Extension\Support;
  */
 class SettingSupport
 {

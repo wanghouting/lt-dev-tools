@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LTUpdate\Extension\Entities;
+namespace LTTools\Extension\Entities;
 
 
 use Illuminate\Database\Eloquent\Model;

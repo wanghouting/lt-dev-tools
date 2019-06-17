@@ -1,11 +1,11 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Layout;
+namespace LTTools\Extension\Tools\Layout;
 
 /**
  * Class Form
  * @author wanghouting
- * @package LTUpdate\Extension\Tools\Layout
+ * @package LTTools\Extension\Tools\Layout
  */
 class Form extends  \Encore\Admin\Form {
     /**

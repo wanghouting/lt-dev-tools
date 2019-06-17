@@ -1,13 +1,13 @@
 <?php
 
-namespace LTUpdate\Extension\Tools\Form;
+namespace LTTools\Extension\Tools\Form;
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use LTUpdate\Extension\Tools\Form\Field\IHidden;
-use LTUpdate\Extension\Tools\Form\Field\IHtml;
-use LTUpdate\Extension\Tools\Form\Field\INotice;
-use LTUpdate\Extension\Tools\Form\Field\IRadio;
+use LTTools\Extension\Tools\Form\Field\IHidden;
+use LTTools\Extension\Tools\Form\Field\IHtml;
+use LTTools\Extension\Tools\Form\Field\INotice;
+use LTTools\Extension\Tools\Form\Field\IRadio;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
  * @method Field\INotice          iNotice($html, $label = '')
  * @method Field\IRadio          iRadio($html, $label = '')
  * @method Field\IHidden          iHidden($html, $label = '')
- * @package LTUpdate\Extension\Tools\Form
+ * @package LTTools\Extension\Tools\Form
  */
 class Form extends \Encore\Admin\Form {
 
