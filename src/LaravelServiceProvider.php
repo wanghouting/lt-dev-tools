@@ -19,8 +19,20 @@ class LaravelServiceProvider extends  ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
-        $this->loadViewsFrom(__DIR__.'/Resources/views', 'lttools');
+
+
+
+        if (method_exists($this, 'loadViewsFrom')) {
+            $this->loadViewsFrom(__DIR__.'/Resources/views', 'lttools');
+
+        if (method_exists($this, 'publishes')) {
+            $this->publishes([
+                __DIR__.'/Resources/views' => base_path('/resources/views/vendor/lttools'),
+            ], 'views');
+            $this->setupConfig();
+
+        }}
+
         $this->loadMigrationsFrom(__DIR__.'/Databases/migrations');
         $this->publishes([__DIR__.'/Resources/assets' => public_path('vendor/lt-dev-tools')], 'lttools-assets');
         $this->loadRoutesFrom(__DIR__.'/Route/routes.php');
