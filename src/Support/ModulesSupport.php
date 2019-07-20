@@ -9,9 +9,7 @@ class ModulesSupport
 
     public  function getSubModulesData(){
         $modules = $this->getSubModules();
-        foreach ($modules as $k=>&$v){
 
-        }
 
         return $modules;
     }

@@ -41,7 +41,7 @@ class UpdateController extends AdminBaseController
         return $content->init($this->header,trans('admin.list'),$ModuleGrid->render());
     }
 
-    public function upgrade()
+    public function upgradeCode()
     {
         $modules = ModulesFacade::getSubModulesData();
 
@@ -53,7 +53,27 @@ class UpdateController extends AdminBaseController
         ob_implicit_flush();
         foreach ($modules as $module ){
             $this->ssPrint('开始更新 ' . $module['name']);
-            $this->ssPrint( shell_exec(__DIR__.'/../../Shell/linux/update.sh '. $module['path']));
+            $this->ssPrint( shell_exec(__DIR__.'/../../Shell/linux/update.sh  code '. $module['path']));
+        }
+
+        $this->ssPrint('全部更新完成！');
+
+        echo "</div>";
+    }
+
+    public function upgradeDb()
+    {
+        $modules = ModulesFacade::getSubModulesData();
+
+
+        echo "<div style='width:100%;height: 100%;background-color: #0C0C0C'>";
+
+        set_time_limit(0);
+
+        ob_implicit_flush();
+        foreach ($modules as $module ){
+            $this->ssPrint('开始更新 ' . $module['name']);
+            $this->ssPrint( shell_exec(__DIR__.'/../../Shell/linux/update.sh  db '. $module['path']));
         }
 
         $this->ssPrint('全部更新完成！');

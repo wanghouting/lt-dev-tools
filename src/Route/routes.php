@@ -12,6 +12,8 @@ Route::group([
     'prefix' => 'admin/lttools',
     'middleware' => ['web', 'admin']
 ], function (Router $router) {
-    $router->get('update/upgrade', 'UpdateController@upgrade');
+    $router->get('update/upgradeCode', 'UpdateController@upgradeCode');
+    $router->get('update/upgradeDb', 'UpdateController@upgradeDb');
+    $router->get('update/refreshDb', 'UpdateController@refreshDb');
     $router->resource('update', 'UpdateController');
 });

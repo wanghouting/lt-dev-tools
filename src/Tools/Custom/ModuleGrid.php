@@ -20,11 +20,18 @@ class ModuleGrid
 
         return <<<SCRIPT
               $('#lt-tool-update .update-btn').on('click',function() {
+                       var requestUri;
+                       if($(this).hasClass('update-code')))
+                            requestUri = upgradeCode
+                       if($(this).hasClass('update-db')))
+                            requestUri = upgradeDb
+                       if($(this).hasClass('refresh-db')))
+                            requestUri = refreshDb                         
                        layer.open({
                                   type: 2,
                                   skin: 'layui-layer-rim-blank', //加上边框
                                   area: ['640px', '420px'], //宽高
-                                  content: '/admin/lttools/update/upgrade'
+                                  content: '/admin/lttools/update/' + requestUri
                        });
                 });
 SCRIPT;
@@ -52,6 +59,7 @@ SCRIPT;
              #lt-tool-update .lt-module-box h5,  #lt-tool-update  h3{ text-align: center;margin-top: 32px;}
              body .layui-layer-rim-blank {border:6px solid #8D8D8D;border:6px solid rgba(0,0,0,.3);border-radius:5px;box-shadow:none}
              
+             #lt-tool-update  h3 a { margin-right: 30px }
              
         </style>
 
@@ -63,7 +71,9 @@ EOF;
             $html .= '<div class="lt-module-box"><h5>'.$module['name'].'</h5></div>';
         }
 
-        return $html . '</h1><h3><a href="javascript:void(0)" class="btn btn-primary update-btn">全部更新</a></h3></div>';
+         $html .=  '</h1><h3><a href="javascript:void(0)" class="btn btn-primary update-btn update-code">更新代码</a>';
+         $html .=  '<a href="javascript:void(0)" class="btn btn-primary update-btn update-db">更新数据库</a>';
+         return $html . '<a href="javascript:void(0)" class="btn btn-primary update-btn refresh-db">重置数据库</a></h3></div>';
 
     }
 }
