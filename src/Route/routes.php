@@ -16,4 +16,5 @@ Route::group([
     $router->get('update/upgradeDb', 'UpdateController@upgradeDb');
     $router->get('update/refreshDb', 'UpdateController@refreshDb');
     $router->resource('update', 'UpdateController');
+    $router->get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });

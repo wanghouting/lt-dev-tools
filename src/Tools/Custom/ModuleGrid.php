@@ -34,6 +34,10 @@ class ModuleGrid
                                   content: '/admin/lttools/update/' + requestUri
                        });
                 });
+//                $(".layui-layer-rim-blank").scroll(function(){
+//							console.log(1);
+//				});
+
 SCRIPT;
 
     }

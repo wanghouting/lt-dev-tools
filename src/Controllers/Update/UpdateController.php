@@ -2,16 +2,13 @@
 
 namespace LTTools\Extension\Controllers\Update;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Facades\Admin;
 use LTTools\Extension\Controllers\Base\AdminBaseController;
-use LTTools\Extension\Facades\GridBuilder;
+use LTTools\Extension\Exceptions\LTToolsWebConsoleException;
 use LTTools\Extension\Facades\ModulesFacade;
+use LTTools\Extension\Facades\WebConsole;
 use LTTools\Extension\Tools\Buttons\ToolsButton;
 use LTTools\Extension\Tools\Custom\ModuleGrid;
-use LTTools\Extension\Tools\Grid\Grid;
 use LTTools\Extension\Tools\Layout\Content;
-use Nwidart\Modules\Module;
 
 
 /**
@@ -29,7 +26,7 @@ class UpdateController extends AdminBaseController
     {
 
         echo (new ToolsButton())->render();
-        $this->header = '本地模块更新';
+        $this->header = '本地代码更新';
     }
 
     public function index(Content $content)
@@ -40,53 +37,102 @@ class UpdateController extends AdminBaseController
         return $content->init($this->header,trans('admin.list'),$ModuleGrid->render());
     }
 
+
+    private function initBody(){
+        echo "<style> body {background-color: #0C0C0C} </style>";
+        echo "<div style='width:100%;height: auto;background-color: #0C0C0C;margin: 10px 0;'>";
+        echo "<script>var scroll = function(){ $('body').scrollTop(1000000);}; </script>";
+        set_time_limit(0);
+        ob_implicit_flush();
+    }
+
+    private  function endBody(){
+        echo "</div>";
+    }
+
+    private function getScroll(){
+        return  "<script> scroll() </script>";
+    }
+
+
     public function upgradeCode()
     {
         $modules = ModulesFacade::getSubModulesData();
+        $this->initBody();
 
-
-        echo "<div style='width:100%;height: 100%;background-color: #0C0C0C'>";
-
-        set_time_limit(0);
-
-        ob_implicit_flush();
-        foreach ($modules as $module ){
-            $this->ssPrint('开始更新 ' . $module['name']);
-            $this->ssPrint( shell_exec(__DIR__.'/../../Shell/linux/update.sh  code '. $module['path']));
+        try{
+            foreach ($modules as $module ){
+                $this->ssPrint('开始更新 ' . $module['name']);
+                $command = 'cd ' . $module['path'];
+                $this->ssPrint($command);
+                $res =  WebConsole::execute_command($command);
+                $this->ssPrint($res['output']);
+                @chdir($module['path']);
+                $command = 'git pull ';
+                $this->ssPrint($command);
+                $res = WebConsole::execute_command($command);
+                $this->ssPrint($res['output']);
+            }
+            $this->ssPrint('全部更新完成！');
+        }catch (LTToolsWebConsoleException $e){
+            $this->ssPrint("error:".$e->getMessage(),true);
+            $this->ssPrint("stopped",true);
         }
-
-        $this->ssPrint('全部更新完成！');
-
-        echo "</div>";
+        $this->endBody();
     }
 
     public function upgradeDb()
     {
-        $modules = ModulesFacade::getSubModulesData();
+        $this->initBody();
+        try{
 
-
-        echo "<div style='width:100%;height: 100%;background-color: #0C0C0C'>";
-
-        set_time_limit(0);
-
-        ob_implicit_flush();
-        foreach ($modules as $module ){
-            $this->ssPrint('开始更新 ' . $module['name']);
-            $this->ssPrint( shell_exec(__DIR__.'/../../Shell/linux/update.sh  db '. $module['path']));
+            $this->ssPrint('开始更新数据库');
+            $command = 'php ../artisan migrate --seed';
+            $this->ssPrint($command);
+            $res = WebConsole::execute_command($command);
+            $this->ssPrint($res['output']);
+            $command = 'php ../artisan module:migrate --seed';
+            $this->ssPrint($command);
+            $res = WebConsole::execute_command($command);
+            $this->ssPrint($res['output']);
+            $this->ssPrint('全部更新完成！');
+        }catch (LTToolsWebConsoleException $e){
+            $this->ssPrint("error:".$e->getMessage(),true);
+            $this->ssPrint("stopped",true);
         }
 
-        $this->ssPrint('全部更新完成！');
-
-        echo "</div>";
+        $this->endBody();
     }
 
-    protected function ssPrint($message){
+    public function refreshDb(){
+        $this->initBody();
+        try{
+
+            $this->ssPrint('开始重置数据库');
+            $command = 'php ../artisan migrate:refresh  --seed';
+            $this->ssPrint($command);
+            $res = WebConsole::execute_command($command);
+            $this->ssPrint($res['output']);
+            $command = 'php ../artisan module:migrate-refresh --seed';
+            $this->ssPrint($command);
+            $res = WebConsole::execute_command($command);
+            $this->ssPrint($res['output']);
+            $this->ssPrint('全部重置完成！');
+        }catch (LTToolsWebConsoleException $e){
+            $this->ssPrint("error:".$e->getMessage(),true);
+            $this->ssPrint("stopped",true);
+        }
+        $this->endBody();
+    }
+    
+    protected function ssPrint($message,$isError = false){
+        if(empty(trim($message))) return;
         $messageArr = explode('---',$message);
         foreach ($messageArr as $m){
             if(empty($m)) continue;
-            echo  "<span style='color: floralwhite;line-height: 20px;font-size: 13px;'>&nbsp;&nbsp;&nbsp;&nbsp;".date("Y-m-d H:i:s").': '. $m."</span></br>";
+            $color = $isError ? 'red' : 'floralwhite';
+            echo  "<span style='color: ".$color.";line-height: 20px;font-size: 13px;'>&nbsp;&nbsp;&nbsp;&nbsp;".date("Y-m-d H:i:s").': '. $m."</span></br>".$this->getScroll();
         }
-
-        sleep(1);
+        usleep(500000);
     }
 }

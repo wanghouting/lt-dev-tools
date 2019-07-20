@@ -40,10 +40,11 @@ SCRIPT;
     </svg>
     <div class="aside-nav bounceInUp animated" id="aside-nav" style="z-index: 9999">
         <label for="" class="aside-menu" title="按住拖动">工具</label>
-        <a href="/admin/lttools/update" title="模块更新" class="menu-item menu-line menu-first">模块<br>更新</a>
-        <a href="javascript:void(0)" title="日志" class="menu-item menu-second">日志</a>
-        <a href="javascript:void(0)" title="开发中" class="menu-item menu-third">开发中</a>
-         <a href="javascript:void(0)" title="开发中" class="menu-item menu-fourth">开发中</a>
+        <a href="/admin/lttools/update" title="代码更新" class="menu-item menu-line menu-first">源码<br>更新</a>
+        <a href="/admin/lttools/logs" target="_blank" title="日志" class="menu-item menu-second">日志</a>
+        <a href="/admin/console" target="_blank" title="控制台" class="menu-item menu-line menu-third">shell<br/>控制台</a>
+         <a href="javascript:void(0)" title="开发中" class="menu-item  menu-fourth">开发中</a>
+
         <!--<a href="javascript:void(0)" title="开发中" class="menu-item menu-line menu-fourth">关注<br>微信</a>-->
     </div>
 </div>    

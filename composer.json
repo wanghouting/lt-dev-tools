@@ -6,7 +6,8 @@
     "require": {
         "encore/laravel-admin": "^1.6",
         "php": "^7.0.3",
-        "wanghouting/web-console": "^0.0.7"
+        "wanghouting/web-console": "^0.0.7",
+        "rap2hpoutre/laravel-log-viewer": "^1.1"
     },
     "license": "MIT",
     "authors": [
