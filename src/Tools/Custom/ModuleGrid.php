@@ -21,12 +21,12 @@ class ModuleGrid
         return <<<SCRIPT
               $('#lt-tool-update .update-btn').on('click',function() {
                        var requestUri;
-                       if($(this).hasClass('update-code')))
-                            requestUri = upgradeCode
-                       if($(this).hasClass('update-db')))
-                            requestUri = upgradeDb
-                       if($(this).hasClass('refresh-db')))
-                            requestUri = refreshDb                         
+                       if($(this).hasClass('update-code'))
+                            requestUri = 'upgradeCode'
+                       if($(this).hasClass('update-db'))
+                            requestUri = 'upgradeDb'
+                       if($(this).hasClass('refresh-db'))
+                            requestUri = 'refreshDb'                         
                        layer.open({
                                   type: 2,
                                   skin: 'layui-layer-rim-blank', //加上边框

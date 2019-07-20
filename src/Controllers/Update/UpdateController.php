@@ -28,7 +28,6 @@ class UpdateController extends AdminBaseController
     public function __construct()
     {
 
-
         echo (new ToolsButton())->render();
         $this->header = '本地模块更新';
     }
