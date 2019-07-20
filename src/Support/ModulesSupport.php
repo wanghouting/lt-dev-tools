@@ -53,7 +53,7 @@ class ModulesSupport
         if(@$handle = opendir($path)){
             while(($dir = readdir($handle)) !== false) {
                 if($dir != ".." && $dir != ".") { //排除根目录；
-                    if(is_dir($path."/".$dir)) { //如果是子文件夹，就进行递归
+                    if(is_dir($path."/".$dir) && (is_dir($path."/".$dir.'/.git/') || is_file($path."/".$dir.'/.git'))) {
                         $modules[] = [
                             'name' => $dir,
                             'path' => $path."/".$dir

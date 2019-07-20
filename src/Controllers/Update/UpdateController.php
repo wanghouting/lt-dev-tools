@@ -85,7 +85,6 @@ class UpdateController extends AdminBaseController
     {
         $this->initBody();
         try{
-
             $this->ssPrint('开始更新数据库');
             $command = 'php ../artisan migrate --seed';
             $this->ssPrint($command);
