@@ -34,7 +34,7 @@ class LaravelServiceProvider extends  ServiceProvider
         }}
 
         $this->loadMigrationsFrom(__DIR__.'/Databases/migrations');
-        $this->publishes([__DIR__.'/Resources/assets' => public_path('vendor/lt-dev-tools')], 'lttools-assets');
+        $this->publishes([__DIR__.'/Resources/assets' => public_path('vendor/lttools')], 'lttools-assets');
         $this->loadRoutesFrom(__DIR__.'/Route/routes.php');
     }
 

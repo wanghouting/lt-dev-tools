@@ -16,10 +16,10 @@ class Admin extends  \Encore\Admin\Admin {
     public function __construct()
     {
        self::$baseCss = array_merge(self::$baseCss,[
-           'vendor/lt-dev-tools/layer/theme/default/layer.css222',
+           'vendor/lttools/layer/theme/default/layer.css',
        ]);
        self::$baseJs = array_merge(self::$baseJs,[
-           'vendor/lt-dev-tools/layer/layer.js',
+           'vendor/lttools/layer/layer.js',
        ]);
     }
 
