@@ -4,8 +4,10 @@ namespace LTTools\Extension\Controllers\Update;
 
 use LTTools\Extension\Controllers\Base\AdminBaseController;
 use LTTools\Extension\Exceptions\LTToolsWebConsoleException;
+use LTTools\Extension\Facades\DynamicOutput;
 use LTTools\Extension\Facades\ModulesFacade;
 use LTTools\Extension\Facades\WebConsole;
+use LTTools\Extension\Support\DynamicOutputSupport;
 use LTTools\Extension\Tools\Buttons\ToolsButton;
 use LTTools\Extension\Tools\Custom\ModuleGrid;
 use LTTools\Extension\Tools\Layout\Content;
@@ -37,101 +39,46 @@ class UpdateController extends AdminBaseController
         return $content->init($this->header,trans('admin.list'),$ModuleGrid->render());
     }
 
-
-    private function initBody(){
-        echo "<style> body {background-color: #0C0C0C} </style>";
-        echo "<div style='width:100%;height: auto;background-color: #0C0C0C;margin: 10px 0;'>";
-        echo "<script>var scroll = function(){ $('body').scrollTop(1000000);}; </script>";
-        set_time_limit(0);
-        ob_implicit_flush();
-    }
-
-    private  function endBody(){
-        echo "</div>";
-    }
-
-    private function getScroll(){
-        return  "<script> scroll() </script>";
-    }
-
-
+    /**
+     * 更新源码
+     */
     public function upgradeCode()
     {
         $modules = ModulesFacade::getSubModulesData();
-        $this->initBody();
+        $clauses = [];
 
-        try{
-            foreach ($modules as $module ){
-                $this->ssPrint('开始更新 ' . $module['name']);
-                $command = 'cd ' . $module['path'];
-                $this->ssPrint($command);
-                $res =  WebConsole::execute_command($command);
-                $this->ssPrint($res['output']);
-                @chdir($module['path']);
-                $command = 'git pull ';
-                $this->ssPrint($command);
-                $res = WebConsole::execute_command($command);
-                $this->ssPrint($res['output']);
-            }
-            $this->ssPrint('全部更新完成！');
-        }catch (LTToolsWebConsoleException $e){
-            $this->ssPrint("error:".$e->getMessage(),true);
-            $this->ssPrint("stopped",true);
+        foreach ($modules as $module ){
+            DynamicOutput::addClause('开始更新 ' . $module['name'],DynamicOutputSupport::TYPE_MESSAGE);
+            DynamicOutput::addClause('cd ' . $module['path'],DynamicOutputSupport::TYPE_COMMAND);
+            DynamicOutput::addClause('git pull',DynamicOutputSupport::TYPE_COMMAND);
         }
-        $this->endBody();
+        DynamicOutput::addClause('全部更新完成！',DynamicOutputSupport::TYPE_MESSAGE);
+        DynamicOutput::output();
+
     }
 
+    /**
+     * 更新数据库
+     */
     public function upgradeDb()
     {
-        $this->initBody();
-        try{
-            $this->ssPrint('开始更新数据库');
-            $command = 'php ../artisan migrate --seed';
-            $this->ssPrint($command);
-            $res = WebConsole::execute_command($command);
-            $this->ssPrint($res['output']);
-            $command = 'php ../artisan module:migrate --seed';
-            $this->ssPrint($command);
-            $res = WebConsole::execute_command($command);
-            $this->ssPrint($res['output']);
-            $this->ssPrint('全部更新完成！');
-        }catch (LTToolsWebConsoleException $e){
-            $this->ssPrint("error:".$e->getMessage(),true);
-            $this->ssPrint("stopped",true);
-        }
-
-        $this->endBody();
+        DynamicOutput::addClause('开始更新数据库 ' ,DynamicOutputSupport::TYPE_MESSAGE);
+        DynamicOutput::addClause('php ../artisan migrate --seed ' ,DynamicOutputSupport::TYPE_COMMAND);
+        DynamicOutput::addClause('php ../artisan module:migrate --seed' ,DynamicOutputSupport::TYPE_COMMAND);
+        DynamicOutput::addClause('全部更新完成！',DynamicOutputSupport::TYPE_MESSAGE);
+        DynamicOutput::output();
     }
 
+    /**
+     * 重置数据库
+     */
     public function refreshDb(){
-        $this->initBody();
-        try{
-
-            $this->ssPrint('开始重置数据库');
-            $command = 'php ../artisan migrate:refresh  --seed';
-            $this->ssPrint($command);
-            $res = WebConsole::execute_command($command);
-            $this->ssPrint($res['output']);
-            $command = 'php ../artisan module:migrate-refresh --seed';
-            $this->ssPrint($command);
-            $res = WebConsole::execute_command($command);
-            $this->ssPrint($res['output']);
-            $this->ssPrint('全部重置完成！');
-        }catch (LTToolsWebConsoleException $e){
-            $this->ssPrint("error:".$e->getMessage(),true);
-            $this->ssPrint("stopped",true);
-        }
-        $this->endBody();
+        DynamicOutput::addClause('开始重置数据库 ' ,DynamicOutputSupport::TYPE_MESSAGE);
+        DynamicOutput::addClause('php ../artisan migrate:refresh  --seed' ,DynamicOutputSupport::TYPE_COMMAND);
+        DynamicOutput::addClause('php ../artisan module:migrate-refresh --seed' ,DynamicOutputSupport::TYPE_COMMAND);
+        DynamicOutput::addClause('全部重置完成！',DynamicOutputSupport::TYPE_MESSAGE);
+        DynamicOutput::output();
     }
     
-    protected function ssPrint($message,$isError = false){
-        if(empty(trim($message))) return;
-        $messageArr = explode('---',$message);
-        foreach ($messageArr as $m){
-            if(empty($m)) continue;
-            $color = $isError ? 'red' : 'floralwhite';
-            echo  "<span style='color: ".$color.";line-height: 20px;font-size: 13px;'>&nbsp;&nbsp;&nbsp;&nbsp;".date("Y-m-d H:i:s").': '. $m."</span></br>".$this->getScroll();
-        }
-        usleep(500000);
-    }
+
 }
