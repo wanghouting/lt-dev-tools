@@ -30,7 +30,7 @@ class Content extends BaseContent
             'breadcrumb'  => $this->breadcrumb,
             'content'     => $this->build(),
         ];
-        $view = $this->view ?? 'vendor.lttools.content';
+        $view = $this->view ?? 'admin::content';
         return view($view, $items)->render();
     }
 

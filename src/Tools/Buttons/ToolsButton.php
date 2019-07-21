@@ -27,7 +27,7 @@ SCRIPT;
         header('X-Accel-Buffering: no');
         Admin::script($this->script());
         return <<<EOT
-        <link type="text/css" href="/vendor/lt-dev-tools/asidenav/asidenav.css" rel="stylesheet" >
+        <link type="text/css" href="/vendor/lttools/asidenav/asidenav.css" rel="stylesheet" >
 <div >
     <svg width="0" height="0">
         <defs>
@@ -48,8 +48,8 @@ SCRIPT;
         <!--<a href="javascript:void(0)" title="开发中" class="menu-item menu-line menu-fourth">关注<br>微信</a>-->
     </div>
 </div>    
-        <script type="text/javascript" src="/vendor/lt-dev-tools/asidenav/jquery.min.js"></script>
-        <script type="text/javascript" src="/vendor/lt-dev-tools/asidenav/asidenav.js"></script>
+        <script type="text/javascript" src="/vendor/lttools/asidenav/jquery.min.js"></script>
+        <script type="text/javascript" src="/vendor/lttools/asidenav/asidenav.js"></script>
         
 EOT;
     }

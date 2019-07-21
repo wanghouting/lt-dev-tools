@@ -34,9 +34,7 @@ class ModuleGrid
                                   content: '/admin/lttools/update/' + requestUri
                        });
                 });
-//                $(".layui-layer-rim-blank").scroll(function(){
-//							console.log(1);
-//				});
+
 
 SCRIPT;
 
@@ -48,6 +46,8 @@ SCRIPT;
         Admin::script($this->script());
 
         $html =   <<<EOF
+        <link type="text/css" href="/vendor/lttools/layer/theme/default/layer.css" rel="stylesheet" >
+
         <style>
             #lt-tool-update {
                 padding-bottom: 30px;
@@ -66,7 +66,8 @@ SCRIPT;
              #lt-tool-update  h3 a { margin-right: 30px }
              
         </style>
-
+        <script type="text/javascript" src="/vendor/lttools/layer/layer.js"></script>
+        <script type="text/javascript" src="/vendor/lttools/asidenav/jquery.min.js"></script>
 EOF;
 
         $html .= '<div id="lt-tool-update" class="box"><h3>当前分支：<font color="#db7093">'.ModulesFacade::getBranch().'</font></h3> <h1 class="lt-module-list">';
