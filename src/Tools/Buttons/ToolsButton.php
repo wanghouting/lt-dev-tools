@@ -43,7 +43,7 @@ SCRIPT;
         <a href="/admin/lttools/update" title="代码更新" class="menu-item menu-line menu-first">源码<br>更新</a>
         <a href="/admin/lttools/logs" target="_blank" title="日志" class="menu-item menu-second">日志</a>
         <a href="/admin/console" target="_blank" title="控制台" class="menu-item menu-line menu-third">shell<br/>控制台</a>
-         <a href="javascript:void(0)" title="开发中" class="menu-item  menu-fourth">开发中</a>
+         <a href="javascript:void(0)" title="资源备份" class="menu-item menu-line menu-fourth">资源<br/>备份</a>
 
         <!--<a href="javascript:void(0)" title="开发中" class="menu-item menu-line menu-fourth">关注<br>微信</a>-->
     </div>
