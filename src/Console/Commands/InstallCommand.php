@@ -46,13 +46,11 @@ class InstallCommand extends Command
      */
     public function initDatabase()
     {
-        !is_dir(storage_path('logs/lttools')) && mkdir(storage_path('logs/lttools'),0777,true);
-        $this->call('migrate');
+        // $this->call('migrate');
         $this->call('vendor:publish', ['--provider'=> "LTTools\Extension\LaravelServiceProvider"]);
         $this->call('vendor:publish', ['--provider'=> "WebConsole\Extension\LaravelServiceProvider"]);
         $this->call('vendor:publish',['--provider' => "Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider"]);
-        $this->call('db:seed', ['--class' => LTToolsDatabaseSeeder::class]);
+        //  $this->call('db:seed', ['--class' => LTToolsDatabaseSeeder::class]);
     }
-
 
 }

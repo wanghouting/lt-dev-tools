@@ -62,13 +62,18 @@ class Form extends \Encore\Admin\Form {
         $this->extra_field[] = $field;
     }
 
+
     /**
      * Footer setting for form.
      *
      * @param Closure $callback
      */
-    public function footer(Closure $callback)
+    public function footer(Closure $callback = null)
     {
+        if (func_num_args() == 0) {
+            return $this->builder()->getFooter();
+        }
+
         call_user_func($callback, $this->builder()->getFooter());
     }
 
