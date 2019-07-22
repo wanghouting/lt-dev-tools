@@ -96,7 +96,7 @@ class DynamicOutputSupport {
         echo '<script type="text/javascript" src="/vendor/lttools/asidenav/jquery.min.js"></script>';
         echo "<script>var scroll = function(){ $('body').scrollTop(1000000);}; </script>";
     }
-
+    
     /**
      * 格式化输出
      * @param $message
