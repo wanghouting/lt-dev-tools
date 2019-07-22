@@ -6,15 +6,15 @@
  * Time: 15:02
  */
 
-namespace LTBackup\Extension\Support;
+namespace LTTools\Extension\Support;
 
-use LTBackup\Extension\Exceptions\WebConsoleException;
-use LTBackup\Extension\Facades\WebConsole;
+use LTTools\Extension\Exceptions\LTToolsWebConsoleException;
+use LTTools\Extension\Facades\WebConsole;
 
 /**
  * Class DynamicOutputSupport
  * @author wanghouting
- * @package LTBackup\Extension\Support
+ * @package LTTools\Extension\Support
  */
 class DynamicOutputSupport {
     //条目类型， 1表示直接输出的文本，2表示要执行的命令输出
@@ -87,13 +87,13 @@ class DynamicOutputSupport {
      * 初始化输出弹出层
      */
     private function initBody(){
-        //ob_end_clean();
+         ob_end_clean();
         set_time_limit(0);
         ob_implicit_flush();
         header('X-Accel-Buffering: no');
         echo "<style> body {background-color: #0C0C0C} </style>";
         echo "<div style='width:100%;height: auto;background-color: #0C0C0C;margin: 10px 0;'>";
-        echo '<script type="text/javascript" src="/vendor/laravel-admin-backup/jquery/jquery.min.js"></script>';
+        echo '<script type="text/javascript" src="/vendor/lttools/asidenav/jquery.min.js"></script>';
         echo "<script>var scroll = function(){ $('body').scrollTop(1000000);}; </script>";
     }
 
