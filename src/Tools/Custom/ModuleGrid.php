@@ -20,20 +20,29 @@ class ModuleGrid
 
         return <<<SCRIPT
               $('#lt-tool-update .update-btn').on('click',function() {
-                       var requestUri;
+                       var requestUri,title;
+                       title = "更新";
                        if($(this).hasClass('update-code'))
-                            requestUri = 'upgradeCode'
-                       if($(this).hasClass('update-db'))
-                            requestUri = 'upgradeDb'
-                       if($(this).hasClass('refresh-db'))
-                            requestUri = 'refreshDb'                         
+                            requestUri = 'update/upgradeCode'
+                       else if($(this).hasClass('update-db'))
+                            requestUri = 'update/upgradeDb'
+                       else if($(this).hasClass('refresh-db'))
+                            requestUri = 'update/refreshDb'    
+                       else if($(this).hasClass('open-shell')){
+                            requestUri = 'shell/layer'
+                            title = "shell控制台" 
+                       }
+                         
                        layer.open({
+                                  title:title,  
                                   type: 2,
                                   skin: 'layui-layer-rim-blank', //加上边框
                                   area: ['640px', '420px'], //宽高
-                                  content: '/admin/lttools/update/' + requestUri
+                                  content: '/admin/lttools/' + requestUri
                        });
                 });
+                
+        
 
 
 SCRIPT;
@@ -75,10 +84,11 @@ EOF;
         foreach ($this->data as $module){
             $html .= '<div class="lt-module-box"><h5>'.$module['name'].'</h5></div>';
         }
-
+         $html .=  '';
          $html .=  '</h1><h3><a href="javascript:void(0)" class="btn btn-primary update-btn update-code">更新代码</a>';
          $html .=  '<a href="javascript:void(0)" class="btn btn-primary update-btn update-db">更新数据库</a>';
-         return $html . '<a href="javascript:void(0)" class="btn btn-primary update-btn refresh-db">重置数据库</a></h3></div>';
+         $html .=  '<a href="javascript:void(0)" class="btn btn-primary update-btn refresh-db">重置数据库</a>';
+         return $html . '<a href="javascript:void(0)" class="btn btn-primary  update-btn  open-shell ">SHELL控制台</a></h3></div>';
 
     }
 }
