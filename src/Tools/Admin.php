@@ -20,13 +20,17 @@ class Admin extends  \Encore\Admin\Admin {
            'vendor/lttools/layer/theme/default/layer.css',
        ]);
 
-        self::$baseJs = array_merge(self::$baseJs,[
-
-        ]);
-        self::$headerJs = array_merge(self::$headerJs,[
-            'vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
-            'vendor/laravel-admin-backup/layer/layer.js'
-        ]);
+       if(isset(self::$headerJs)){
+             self::$headerJs = array_merge(self::$headerJs,[
+                 'vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+                 'vendor/laravel-admin-backup/layer/layer.js'
+            ]);
+       }else{
+           self::$baseJs = array_merge(self::$baseJs,[
+               'vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+               'vendor/laravel-admin-backup/layer/layer.js'
+           ]);
+       }
     }
 
     /**
