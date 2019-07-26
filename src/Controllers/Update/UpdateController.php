@@ -4,6 +4,7 @@ namespace LTTools\Extension\Controllers\Update;
 
 use LTTools\Extension\Controllers\Base\AdminBaseController;
 use LTTools\Extension\Exceptions\LTToolsWebConsoleException;
+use LTTools\Extension\Facades\Admin;
 use LTTools\Extension\Facades\DynamicOutput;
 use LTTools\Extension\Facades\ModulesFacade;
 use LTTools\Extension\Facades\WebConsole;
@@ -33,8 +34,8 @@ class UpdateController extends AdminBaseController
     public function index(Content $content)
     {
         $modules = ModulesFacade::getSubModulesData();
-
-        $ModuleGrid = new ModuleGrid($modules);
+       
+        $ModuleGrid = Admin::iModules($modules);
         return $content->init($this->header,trans('admin.list'),$ModuleGrid->render());
     }
 

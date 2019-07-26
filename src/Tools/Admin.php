@@ -4,6 +4,7 @@ namespace LTTools\Extension\Tools;
 
 
 use Closure;
+use LTTools\Extension\Tools\Custom\ModuleGrid;
 use LTTools\Extension\Tools\Form\Form;
 use LTTools\Extension\Tools\Grid\Grid;
 
@@ -18,9 +19,14 @@ class Admin extends  \Encore\Admin\Admin {
        self::$baseCss = array_merge(self::$baseCss,[
            'vendor/lttools/layer/theme/default/layer.css',
        ]);
-       self::$baseJs = array_merge(self::$baseJs,[
-           'vendor/lttools/layer/layer.js',
-       ]);
+
+        self::$baseJs = array_merge(self::$baseJs,[
+
+        ]);
+        self::$headerJs = array_merge(self::$headerJs,[
+            'vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+            'vendor/laravel-admin-backup/layer/layer.js'
+        ]);
     }
 
     /**
@@ -44,6 +50,10 @@ class Admin extends  \Encore\Admin\Admin {
     public function form($model, Closure $callable)
     {
         return new Form($this->getModel($model), $callable);
+    }
+
+    public function iModules($modules){
+        return new ModuleGrid($modules);
     }
 
 //    /**
