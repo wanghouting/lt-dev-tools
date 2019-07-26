@@ -29,7 +29,7 @@ Route::group([
 
 Route::group([
     'namespace' => "LTTools\\Extension\\Controllers\\Log",
-    'prefix' => 'admin/lttools/log',
+    'prefix' => 'admin/lttools/logs',
     'middleware' => ['web', 'admin']
 ], function (Router $router) {
     $router->get('/', 'LogController@index');

@@ -50,6 +50,7 @@ class InstallCommand extends Command
         $this->call('vendor:publish', ['--provider'=> "LTTools\Extension\LaravelServiceProvider"]);
         $this->call('vendor:publish', ['--provider'=> "WebConsole\Extension\LaravelServiceProvider"]);
         $this->call('vendor:publish',['--provider' => "Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider"]);
+        $this->call('vendor:publish', ['--provider'=> "LTBackup\Extension\LaravelServiceProvider"]);
         $this->call('db:seed', ['--class' => LTToolsDatabaseSeeder::class]);
     }
 

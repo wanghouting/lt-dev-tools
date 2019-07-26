@@ -13,7 +13,7 @@ class Content extends BaseContent
 {
 
     protected  $view = null;
-
+    public $header;
     public function  setView($view){
         $this->view = $view;
     }

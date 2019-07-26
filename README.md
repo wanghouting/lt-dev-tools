@@ -22,7 +22,17 @@
  	php artisan lttools:install 
  	```
 
- 3. 添加导航悬浮球
+ 3. 添加定时任务
+
+ 	修改app/Console/kernel.php,在schedule里面增加 
+ 	```
+ 	$schedule->command('ltbackup:backup --all')->everyMinute();
+    $schedule->command('ltbackup:clear')->dailyAt('1:00');
+ 	```
+
+ 	最后在cron中加入 ，注意修改“/path-to-your-project/artisan” 为你的项目下artisan路径
+ 	```
+ 	* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1 
+ 	```
  
- 	- 将"  \LTTools\Extension\Facades\LTTools::showNav();" 添加到父控制器的构造函数里；	
-	
+ 	
