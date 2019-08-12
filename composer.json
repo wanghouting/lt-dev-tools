@@ -6,9 +6,9 @@
     "require": {
         "encore/laravel-admin": "^1.6.5",
         "php": "^7.0.3",
-        "wanghouting/web-console": "^0.0.7",
-        "wanghouting/laravel-admin-backup": "^1.0.0",
-        "rap2hpoutre/laravel-log-viewer": "^1.1"
+        "wanghouting/web-console": "dev-master",
+        "wanghouting/laravel-admin-backup": "dev-master",
+        "rap2hpoutre/laravel-log-viewer": "dev-master"
 
     },
     "license": "MIT",
