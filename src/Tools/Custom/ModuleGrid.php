@@ -17,7 +17,7 @@ class ModuleGrid
     }
 
     protected function script(){
-
+        $route_prefix = config('lttools.route_prefix');
         return <<<SCRIPT
               $('#lt-tool-update .update-btn').on('click',function() {
                        var requestUri,title;
@@ -38,7 +38,7 @@ class ModuleGrid
                                   type: 2,
                                   skin: 'layui-layer-rim-blank', //加上边框
                                   area: ['640px', '420px'], //宽高
-                                  content: '/admin/lttools/' + requestUri
+                                  content: '/{$route_prefix}/lttools/' + requestUri
                        });
                 });
                 

@@ -9,7 +9,7 @@ use Illuminate\Routing\Router;
 
 Route::group([
     'namespace' => "LTTools\\Extension\\Controllers\\Update",
-    'prefix' => 'admin/lttools',
+    'prefix' => config('lttools.route_prefix').'/lttools',
     'middleware' => ['web', 'admin']
 ], function (Router $router) {
     $router->get('update/upgradeCode', 'UpdateController@upgradeCode');
@@ -20,7 +20,7 @@ Route::group([
 
 Route::group([
     'namespace' => "LTTools\\Extension\\Controllers\\Shell",
-    'prefix' => 'admin/lttools/shell',
+    'prefix' => config('lttools.route_prefix').'/lttools/shell',
     'middleware' => ['web', 'admin']
 ], function (Router $router) {
     $router->get('/', 'ShellController@index');
@@ -29,7 +29,7 @@ Route::group([
 
 Route::group([
     'namespace' => "LTTools\\Extension\\Controllers\\Log",
-    'prefix' => 'admin/lttools/logs',
+    'prefix' => config('lttools.route_prefix').'/lttools/logs',
     'middleware' => ['web', 'admin']
 ], function (Router $router) {
     $router->get('/', 'LogController@index');

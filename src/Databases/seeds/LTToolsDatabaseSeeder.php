@@ -32,7 +32,7 @@ class LTToolsDatabaseSeeder extends Seeder
             'order'     => 1,
             'title'     => '数据维护',
             'icon'      => 'fa-database',
-            'uri'       => '/lt-tools',
+            'uri'       => 'lttools/update',
             'created_at' => $date,
             'updated_at' => $date
         ];

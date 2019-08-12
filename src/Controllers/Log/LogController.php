@@ -27,7 +27,7 @@ class LogController extends AdminBaseController
     {
         $this->iframeAutoHegiht('external-frame-log1');
 
-        $grid = '<iframe src="/admin/lttools/logs/logs" id="external-frame-log1"  width="100%" height="100%" style=" border: 0;min-height: 1100px " scrolling="no"></iframe>';
+        $grid = '<iframe src="/'.config('lttools.route_prefix').'/lttools/logs/logs" id="external-frame-log1"  width="100%" height="100%" style=" border: 0;min-height: 1100px " scrolling="no"></iframe>';
 
         return $content->init($this->header,$this->description,$grid);
     }

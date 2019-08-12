@@ -49,7 +49,7 @@ class FormViewBuilder {
             // 去掉`继续编辑`checkbox
             !$showEditCheck && $footer->disableEditingCheck();
             // 去掉`继续创建`checkbox
-            !$showCreateCheck && $footer->disableCreatingCheck();
+            !$showCreateCheck &&  method_exists($footer, 'disableCreatingCheck') &&  $footer->disableCreatingCheck();
             // 去掉`重置`按钮
             !$showReset && $footer->disableReset();
             // 去掉`提交`按钮
