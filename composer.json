@@ -8,7 +8,7 @@
         "php": "^7.0.3",
         "wanghouting/web-console": "dev-master",
         "wanghouting/laravel-admin-backup": "dev-master",
-        "rap2hpoutre/laravel-log-viewer": "dev-master"
+        "rap2hpoutre/laravel-log-viewer": "^1.1"
 
     },
     "license": "MIT",
