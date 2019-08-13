@@ -68,7 +68,7 @@ class DynamicOutputSupport {
                     $res =  WebConsole::execute_command($clause['content']);
                     $trimContent = trim($clause['content']);
                     if(strtolower(substr($trimContent,0,2))  === 'cd' ){
-                        @chdir(substr($trimContent,2,-1));
+                        @chdir(trim(substr($trimContent,2)));
                     }
                     $this->ssPrint($res['output'],false,$sleep);
                     break;
